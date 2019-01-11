@@ -1,0 +1,6 @@
+<!--pages/listTmp/listTmp.wxml-->
+<template name="listTmp">
+  <view>
+    template内容。。。
+  </view>
+</template>
