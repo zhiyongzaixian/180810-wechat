@@ -1,37 +1,25 @@
-// pages/list/list.js
-// 引用数据
+// pages/detail/detail.js
 let datas = require('../../datas/list-data.js');
-console.log(typeof datas);
-
-
+let dataArr = datas.list_data;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    datasArr: []
+    detailObj: {}
   },
 
-  toDetail(event){
-    console.log(event);
-    let index = event.currentTarget.dataset.index;
-    wx.navigateTo({
-      url: '/pages/detail/detail?index=' + index
-    })
-  },
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载w
    */
   onLoad: function (options) {
-    console.log('onLoad')
-    // 修改状态
-    // react： this.setState()
-    // vue: this.xxx = value
-    // 小程序修改状态
+    console.log(options);
+    // 获取路由参数
+    let index = options.index;
+    // 更新detailObj的状态
     this.setData({
-      datasArr: datas.list_data,
-      msg: 'xxx'
+      detailObj: dataArr[index]
     })
   },
 
@@ -39,7 +27,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log('onReady')
 
   },
 
@@ -47,7 +34,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log('onShow')
 
   },
 

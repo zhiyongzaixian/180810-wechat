@@ -4,27 +4,9 @@
   flex-direction: column;
 }
 
-.avatar_date {
-  padding: 10rpx;
-}
 
-.avatar_date image {
-  width: 60rpx;
-  height: 60rpx;
-  vertical-align: middle;
-}
 
-.avatar_date text {
-  vertical-align: middle;
-  font-size: 32rpx;
-  margin-left: 10rpx;
-}
 
-.company {
-  margin-left: 10rpx;
-  font-size: 40rpx;
-  font-weight: 700;
-}
 
 .tmpImg {
   width: 100%;

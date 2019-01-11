@@ -24,3 +24,11 @@
 ### 5. 数据遍历
   1. wx:for='目标' 默认的下标:index, 默认的个体：item
   2. 像模板导入数据： data='{{...item}}'
+  
+  
+### 6. 数据传递
+  1. 绑定事件向当前事件的event对象传递数据： data-key=value
+    1. 获取： event.target || event.currentTarget
+  2. 路由跳转传递数据： 路由地址?key=value
+    1. 获取：跳转目标页面onload中的实参
+    
