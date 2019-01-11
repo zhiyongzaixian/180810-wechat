@@ -1,20 +1,12 @@
-// pages/index/index.js
+// pages/list/list.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    msg: '初始化的数据'
-  },
 
-  toList(){
-    // 跳转页面 --- 保留当前页面
-    wx.navigateTo({
-      url: '/pages/list/list',
-    })
   },
-
 
   /**
    * 生命周期函数--监听页面加载
