@@ -1,24 +1,38 @@
 // pages/list/list.js
+// 引用数据
+let datas = require('../../datas/list-data.js');
+console.log(typeof datas);
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    datasArr: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('onLoad')
+    // 修改状态
+    // react： this.setState()
+    // vue: this.xxx = value
+    // 小程序修改状态
+    this.setData({
+      datasArr: datas.list_data,
+      msg: 'xxx'
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    console.log('onReady')
 
   },
 
@@ -26,6 +40,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log('onShow')
 
   },
 
