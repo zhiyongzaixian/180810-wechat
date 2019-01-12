@@ -1,7 +1,8 @@
 <!--pages/index/index.wxml-->
 <view class='indexContainer'>
-  <image class='avatar' src='/images/index/cart.jpg'></image>
-  <text class='nickName'>hello {{msg}}</text>
+  <image wx:if='{{userInfo.avatarUrl}}' class='avatar' src='{{userInfo.avatarUrl}}'></image>
+  <button wx:else open-type='getUserInfo'  bindgetuserinfo='handleGetUserInfo'>点击获取用户信息</button>
+  <text class='nickName'>hello {{userInfo.nickName}}</text>
   <view catchtap='toList' class='goStudy'>
     <text >开启小程序之旅</text>
   </view>

@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    msg: '初始化的数据'
+    msg: '初始化的数据',
+    userInfo: {}
   },
 
   toList(){
@@ -20,7 +21,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 获取用户登录的信息
+    wx.getUserInfo({
+      success: (data) => {
+        console.log(data);
+        // 更新状态
+        this.setData({
+          userInfo: data.userInfo
+        })
+      },
+      fail(){
+        console.log('获取失败');
+      }
+    })
+    
+  },
+  handleGetUserInfo(msg){
+    // 处理用户授权的回调
+    console.log(msg)
+    if(msg.detail.userInfo){
+      this.setData({
+        userInfo: msg.detail.userInfo
+      })
+    }
   },
 
   /**

@@ -32,3 +32,13 @@ page {
   line-height: 80rpx;
   border-radius: 10rpx;
 }
+
+button{
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 150rpx;
+  margin: 50rpx 0;
+  font-size: 28rpx;
+  line-height: 300rpx;
+  background: pink;
+}
