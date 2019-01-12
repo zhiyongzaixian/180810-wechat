@@ -1,6 +1,12 @@
 // pages/detail/detail.js
 let datas = require('../../datas/list-data.js');
 let dataArr = datas.list_data;
+
+let appData = getApp()
+console.log('app实例', appData, typeof appData);
+
+
+
 Page({
 
   /**
@@ -33,6 +39,40 @@ Page({
         isCollected: true
       })
     }
+
+
+    // 判断音乐是否在播放
+    if (appData.data.pageIndex === index && appData.data.isPlay){
+      this.setData({
+        isMusicPlay: true
+      })
+    }
+
+    // 监视音乐播放
+    wx.onBackgroundAudioPlay(() => {
+      console.log('音乐播放');
+      // 修改isMusicPlay状态
+      this.setData({
+        isMusicPlay: true
+      })
+
+      //  修改app实例的数据
+      appData.data.pageIndex = index;
+      appData.data.isPlay = true;
+    })
+
+    // 监视音乐暂停
+    wx.onBackgroundAudioPause(() => {
+      console.log('音乐暂停');
+      // 修改isMusicPlay状态
+      this.setData({
+        isMusicPlay: false
+      })
+
+      //  修改app实例的数据
+      // appData.data.pageIndex = index;
+      appData.data.isPlay = false;
+    })
   },
   handleCollection(){
     console.log('x');
@@ -82,6 +122,22 @@ Page({
     this.setData({
       isMusicPlay
     })
+    
+    let { dataUrl, title, coverImgUrl} = this.data.detailObj.music;
+    if (isMusicPlay){
+      // 播放
+      wx.playBackgroundAudio({
+        dataUrl,
+        title,
+        coverImgUrl
+      })
+    }else {
+      // 暂停
+      wx.pauseBackgroundAudio({})
+    }
+
+
+
   },
 
   /**
