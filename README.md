@@ -34,4 +34,15 @@
     
 ### 7. 获取用户登录信息
   1. api: wx.getUserInfo() ---> 不能自动弹出授权窗口 ---> 初始化会失败
-    
+  
+  
+### 8. 本地数据缓存
+  1. wx.setStorage(异步) || wx.setStorageSync(同步) 
+  2. wx.getStorage(异步) || wx.getStorageSync(同步) 
+  3. 所有数据存储上限为 10MB
+  
+### 9. 前后台交互
+  1. 发送请求的方式： wx.request()
+  2. 处于安全起见只能发送https请求
+  3. 一个接口配置20个域名
+  4. 并发量最大10个
