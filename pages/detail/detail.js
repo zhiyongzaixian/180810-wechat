@@ -8,6 +8,7 @@ Page({
    */
   data: {
     detailObj: {},
+    isMusicPlay: false, // 标识音乐是否播放
     isCollected: false // 标识文章是否被收藏
   },
 
@@ -69,6 +70,18 @@ Page({
       data: obj
     })
 
+  },
+  handleShare(){
+    wx.showActionSheet({
+      itemList: ['分享到朋友圈', '分享到微博', '分享到qq空间']
+    })
+  },
+  handleMusicPlay(){
+    // 处理音乐播放功能
+    let isMusicPlay = !this.data.isMusicPlay;
+    this.setData({
+      isMusicPlay
+    })
   },
 
   /**
